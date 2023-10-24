@@ -42,35 +42,33 @@ public class Problem_Set_4B {
             last--;
         }
 
-        System.out.println(palindrome);
+        System.out.println(palindrome + "\n");
 
         // --------------------------- PIG LATIN -----------------------------
 
-        System.out.println();
         System.out.print("Pig Latin: ");
         String pig = input.nextLine();
         System.out.println();
 
         result = "";
         int space = pig.indexOf(" ");
-        int lastIndex = 0;
+        int lastSpace = 0;
 
         while (space != -1) {
-            String word = pig.substring(lastIndex, space);
-            lastIndex = space + 1;
+            String word = pig.substring(lastSpace, space);
+            lastSpace = space + 1;
             if (word.length() > 2) result += pigLatin(word) + " ";
             else result += word + " ";
-            space = pig.indexOf(" ", lastIndex);
+            space = pig.indexOf(" ", lastSpace);
         }
 
-        String lastWord = pig.substring(lastIndex);
+        String lastWord = pig.substring(lastSpace); //add last word
         result += pigLatin(lastWord);
 
-        System.out.println(result);
+        System.out.println(result + "\n");
 
         // ----------------------- ASCENDING NUMBERS -------------------------
 
-        System.out.println();
         System.out.println("Strictly Ascending Numbers");
         System.out.print("Minimum Number: ");
         int min = input.nextInt();
@@ -78,13 +76,25 @@ public class Problem_Set_4B {
         int max = input.nextInt();
         System.out.println();
 
+        int num = 0;
+
+        // %10 = always the rightmost digit 
+        // /10 = remove digits
+
+        for (int i = min; i < max; i++) {
+            //if 
+
+        }
+        //print num;
+
+
         // ------------------------- TIMES TABLE -----------------------------
-        
+
     }
 
     public static String pigLatin(String str) {
         String result = str.substring(1) + str.charAt(0) + "ay";
-        return result; //WHY NEED RETURN?
+        return result;
     }
 
     public static void ascending(int beg, int end) {
