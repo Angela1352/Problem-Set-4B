@@ -2,4 +2,8 @@
 comment0.target=Problem_Set_4B
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-numComments=2
+comment2.params=str
+comment2.target=java.lang.String\ pigLatin(java.lang.String)
+comment3.params=beg\ end
+comment3.target=void\ ascending(int,\ int)
+numComments=4

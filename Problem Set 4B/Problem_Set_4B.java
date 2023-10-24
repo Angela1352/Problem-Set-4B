@@ -12,64 +12,83 @@ public class Problem_Set_4B {
 
         Scanner input = new Scanner(System.in);
 
-        String nonLetters = ",.:;()[]{}!?@#$%^&* ";
+        // -------------------------- PALINDROMES ----------------------------
+
         boolean palindrome = true;
 
         System.out.print("Palindrome: ");
         String pal = input.nextLine();
+        pal = pal.toLowerCase();
         System.out.println();
 
-        pal = pal.toLowerCase();    
+        String result = "";
+        String nonLetters = ",.:;()[]{}!?@#$%^&* ";
+
+        for (int i = 0; i < pal.length(); i++) {
+            String letter = pal.substring(i, i+1);
+            if (nonLetters.contains(letter)) result += letter.substring(0, 0);
+            else result += letter;
+        }
 
         int first = 0;
-        int last = pal.length()-1;
-        String letter = pal.substring(first, first+1);
+        int last = result.length()-1;
 
         while (first < last) {
-            char Lchar = pal.charAt(first);
-            char Rchar = pal.charAt(last);
+            char left = result.charAt(first);
+            char right = result.charAt(last);
 
-            if (nonLetters.contains(letter)) first++;
-            else if (Lchar != Rchar) palindrome = false;
-
+            if (left != right) palindrome = false;
             first++;
             last--;
         }
-        
+
         System.out.println(palindrome);
 
-        /*
-        // -----------------------------------------------------------------------
-
-        String result = "";
+        // --------------------------- PIG LATIN -----------------------------
 
         System.out.println();
-        System.out.println("Pig Latin: ");
+        System.out.print("Pig Latin: ");
         String pig = input.nextLine();
         System.out.println();
 
-        for (int i = 0; i < pig.length(); i++) {
+        result = "";
+        int space = pig.indexOf(" ");
+        int lastIndex = 0;
 
-        String word = pal.substring(0, i);
+        while (space != -1) {
+            String word = pig.substring(lastIndex, space);
+            lastIndex = space + 1;
+            if (word.length() > 2) result += pigLatin(word) + " ";
+            else result += word + " ";
+            space = pig.indexOf(" ", lastIndex);
         }
 
-        //if (word.length() <= 2) System.out.println(pal);
+        String lastWord = pig.substring(lastIndex);
+        result += pigLatin(lastWord);
 
-        for (int i = 0; i < pig.length(); i++) {
-        result += pig.substring(1) + pig.substring(i, i+1) + "ay";
-        }
         System.out.println(result);
 
-        // -----------------------------------------------------------------------
-         */
+        // ----------------------- ASCENDING NUMBERS -------------------------
+
+        System.out.println();
+        System.out.println("Strictly Ascending Numbers");
+        System.out.print("Minimum Number: ");
+        int min = input.nextInt();
+        System.out.print("Maximum Number: ");
+        int max = input.nextInt();
+        System.out.println();
+
+        // ------------------------- TIMES TABLE -----------------------------
+        
+    }
+
+    public static String pigLatin(String str) {
+        String result = str.substring(1) + str.charAt(0) + "ay";
+        return result; //WHY NEED RETURN?
+    }
+
+    public static void ascending(int beg, int end) {
 
     }
 }
-
-
-
-
-
-
-
 
