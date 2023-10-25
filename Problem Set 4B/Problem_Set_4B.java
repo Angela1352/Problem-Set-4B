@@ -62,8 +62,9 @@ public class Problem_Set_4B {
             space = pig.indexOf(" ", lastSpace);
         }
 
-        String lastWord = pig.substring(lastSpace); //add last word
-        result += pigLatin(lastWord);
+        String lastWord = pig.substring(lastSpace); //last word
+        if (lastWord.length() > 2) result += pigLatin(lastWord); 
+        else result += lastWord;
 
         System.out.println(result + "\n");
 
@@ -76,36 +77,49 @@ public class Problem_Set_4B {
         int max = input.nextInt();
         System.out.println();
 
-        int num = 0;
+        int count = 0;
 
-        // %10 = always the rightmost digit 
-        // /10 = remove digits
+        for (int i = min; i <= max; i++) {
+            int currentNum = i;
+            int lastNum = 10;
+            boolean ascend = true;
 
-        //for (int i = min; i < max; i++) {
-            //if 
+            while (currentNum > 0) {
+                int currentDigit = currentNum % 10;
 
-        //}
-        //print num;
+                if (currentDigit >= lastNum) ascend = false;
 
+                lastNum = currentDigit;
+                currentNum = currentNum / 10;
+            }
+
+            if (ascend) count++;
+        }
+
+        System.out.println("Result: " + count + "\n");
 
         // ------------------------- TIMES TABLE -----------------------------
-        
+
         System.out.print("Times Table: ");
         int times = input.nextInt();
         System.out.println();
-        
+
         String space1 = " ";
         int maxNum = times * times;
-        
+
         for (int i = 1; i <= times; i++) {
             for (int x = 1; x <= times; x++) {
                 int result1 = i * x;
-                
-                if (maxNum/10 == 
-                if (maxNum/100 >= 1) //three digits become one digit
-                if (result1/10 == 1) space1 = " ";
-                else if (result1/100 == 1) space1 = "  ";
-                else if (result1/1000 == 1) space1 = "   ";
+
+                if (maxNum/100 == 0) {
+                    if (result1/10 == 0) space1 = "  ";
+                    else if (result1/100 >= 0) space1 = " ";
+                } else if (maxNum/1000 == 0) {
+                    if (result1/10 == 0) space1 = "   ";
+                    else if (result1/100 == 0) space1 = "  ";
+                    else if (result1/1000 >= 0) space1 = " ";
+                }
+
                 System.out.print(space1 + result1);
             }
             System.out.println();
@@ -117,9 +131,5 @@ public class Problem_Set_4B {
         String result = str.substring(1) + str.charAt(0) + "ay";
         return result;
     }
-
-    //public static void ascending(int beg, int end) {
-
-    //}
 }
 
