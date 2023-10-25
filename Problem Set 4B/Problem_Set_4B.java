@@ -81,14 +81,35 @@ public class Problem_Set_4B {
         // %10 = always the rightmost digit 
         // /10 = remove digits
 
-        for (int i = min; i < max; i++) {
+        //for (int i = min; i < max; i++) {
             //if 
 
-        }
+        //}
         //print num;
 
 
         // ------------------------- TIMES TABLE -----------------------------
+        
+        System.out.print("Times Table: ");
+        int times = input.nextInt();
+        System.out.println();
+        
+        String space1 = " ";
+        int maxNum = times * times;
+        
+        for (int i = 1; i <= times; i++) {
+            for (int x = 1; x <= times; x++) {
+                int result1 = i * x;
+                
+                if (maxNum/10 == 
+                if (maxNum/100 >= 1) //three digits become one digit
+                if (result1/10 == 1) space1 = " ";
+                else if (result1/100 == 1) space1 = "  ";
+                else if (result1/1000 == 1) space1 = "   ";
+                System.out.print(space1 + result1);
+            }
+            System.out.println();
+        }
 
     }
 
@@ -97,8 +118,8 @@ public class Problem_Set_4B {
         return result;
     }
 
-    public static void ascending(int beg, int end) {
+    //public static void ascending(int beg, int end) {
 
-    }
+    //}
 }
 
